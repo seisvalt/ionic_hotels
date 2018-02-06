@@ -1,0 +1,40 @@
+<ion-split-pane>
+
+  <!-- logged out menu -->
+  <ion-menu id="loggedOutMenu" type="overlay" [content]="content">
+
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Filtros</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content class="custom">
+
+      <ion-list>
+        <ion-list-header>
+          Filtros
+        </ion-list-header>
+      </ion-list>
+
+      <ion-card>
+        <ion-card-content>
+          <ion-card-title>
+            Nine Inch Nails Live
+          </ion-card-title>
+          <p>
+            The most popular industrial group ever, and largely
+            responsible for bringing the music to a mass audience.
+          </p>
+        </ion-card-content>
+      </ion-card>
+
+
+    </ion-content>
+
+  </ion-menu>
+
+  <!-- main navigation -->
+  <ion-nav [root]="rootPage" #content swipeBackEnabled="false" main name="app"></ion-nav>
+
+</ion-split-pane>

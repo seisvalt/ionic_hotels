@@ -16,6 +16,8 @@ import { SpeakerListPage } from '../pages/speaker-list/speaker-list';
 import { TabsPage } from '../pages/tabs-page/tabs-page';
 import { ConferenceData } from '../providers/conference-data';
 import { UserData } from '../providers/user-data';
+import {HotelListPage} from "../pages/hotel-list/hotel-list";
+import {HotelProvider} from "../providers/hotel";
 
 
 @NgModule({
@@ -27,6 +29,7 @@ import { UserData } from '../providers/user-data';
     SpeakerDetailPage,
     SpeakerListPage,
     TabsPage,
+    HotelListPage,
   ],
   imports: [
     BrowserModule,
@@ -38,6 +41,7 @@ import { UserData } from '../providers/user-data';
         { component: SpeakerListPage, name: 'SpeakerList', segment: 'speakerList' },
         { component: SpeakerDetailPage, name: 'SpeakerDetail', segment: 'speakerDetail/:speakerId' },
         { component: AboutPage, name: 'About', segment: 'about' },
+        { component: HotelListPage, name: 'Hotel', segment: 'hotels' },
       ]
     }),
     IonicStorageModule.forRoot()
@@ -50,11 +54,13 @@ import { UserData } from '../providers/user-data';
     SessionDetailPage,
     SpeakerDetailPage,
     SpeakerListPage,
+    HotelListPage,
     TabsPage,
   ],
   providers: [
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     ConferenceData,
+    HotelProvider,
     UserData,
     InAppBrowser,
     SplashScreen

@@ -8,9 +8,7 @@ import {
   NavController
 } from 'ionic-angular';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
-
-import { ConferenceData } from '../../providers/conference-data';
-
+import { HotelProvider } from '../../providers/hotel';
 import { SessionDetailPage } from '../session-detail/session-detail';
 import { SpeakerDetailPage } from '../speaker-detail/speaker-detail';
 
@@ -24,25 +22,28 @@ export interface ActionSheetButton {
 };
 
 @Component({
-  selector: 'page-speaker-list',
-  templateUrl: 'speaker-list.html'
+  selector: 'page-hotel-list',
+  templateUrl: 'hotel-list.html'
 })
-export class SpeakerListPage {
+export class HotelListPage {
   actionSheet: ActionSheet;
-  speakers: any[] = [];
+  hotels: any[] = [];
+  assets : string  = "../assets/img";
+  url_img : string  = "/hotels/";
+  url_amenities : string  = "/amenities/";
 
   constructor(
     public actionSheetCtrl: ActionSheetController,
     public navCtrl: NavController,
-    public confData: ConferenceData,
+    public confData: HotelProvider,
     public config: Config,
     public inAppBrowser: InAppBrowser
   ) {}
 
   ionViewDidLoad() {
-    console.log("ddddd");
-    this.confData.getSpeakers().subscribe((speakers: any[]) => {
-      this.speakers = speakers;
+    console.log("cargando");
+    this.confData.getSpeakers().subscribe((hotels: any[]) => {
+      this.hotels = hotels;
     });
   }
 
@@ -50,28 +51,28 @@ export class SpeakerListPage {
     this.navCtrl.push(SessionDetailPage, { sessionId: session.id });
   }
 
-  goToSpeakerDetail(speaker: any) {
-    this.navCtrl.push(SpeakerDetailPage, { speakerId: speaker.id });
+  goToSpeakerDetail(hotel: any) {
+    this.navCtrl.push(SpeakerDetailPage, { speakerId: hotel.id });
   }
 
-  goToSpeakerTwitter(speaker: any) {
+  goToSpeakerTwitter(hotel: any) {
     this.inAppBrowser.create(
-      `https://twitter.com/${speaker.twitter}`,
+      `https://twitter.com/${hotel.twitter}`,
       '_blank'
     );
   }
 
-  openSpeakerShare(speaker: any) {
+  openSpeakerShare(hotel: any) {
     let actionSheet = this.actionSheetCtrl.create({
-      title: 'Share ' + speaker.name,
+      title: 'Share ' + hotel.name,
       buttons: [
         {
           text: 'Copy Link',
           handler: () => {
-            console.log('Copy link clicked on https://twitter.com/' + speaker.twitter);
+            console.log('Copy link clicked on https://twitter.com/' + hotel.twitter);
             if ( (window as any)['cordova'] && (window as any)['cordova'].plugins.clipboard) {
               (window as any)['cordova'].plugins.clipboard.copy(
-                'https://twitter.com/' + speaker.twitter
+                'https://twitter.com/' + hotel.twitter
               );
             }
           }
@@ -89,24 +90,24 @@ export class SpeakerListPage {
     actionSheet.present();
   }
 
-  openContact(speaker: any) {
+  openContact(hotel: any) {
     let mode = this.config.get('mode');
 
     let actionSheet = this.actionSheetCtrl.create({
-      title: 'Contact ' + speaker.name,
+      title: 'Contact ' + hotel.name,
       buttons: [
         {
-          text: `Email ( ${speaker.email} )`,
+          text: `Email ( ${hotel.email} )`,
           icon: mode !== 'ios' ? 'mail' : null,
           handler: () => {
-            window.open('mailto:' + speaker.email);
+            window.open('mailto:' + hotel.email);
           }
         } as ActionSheetButton,
         {
-          text: `Call ( ${speaker.phone} )`,
+          text: `Call ( ${hotel.phone} )`,
           icon: mode !== 'ios' ? 'call' : null,
           handler: () => {
-            window.open('tel:' + speaker.phone);
+            window.open('tel:' + hotel.phone);
           }
         } as ActionSheetButton
       ]

@@ -20,15 +20,67 @@
       <ion-card>
         <ion-card-content>
           <ion-card-title>
-            Nine Inch Nails Live
+            Nombre del Hotel
           </ion-card-title>
-          <p>
-            The most popular industrial group ever, and largely
-            responsible for bringing the music to a mass audience.
-          </p>
+          <ion-item>
+          <ion-input type="text" placeholder ="Ingrese el nombre del hotel"></ion-input>
+          <button ion-button item-right color="secondary" (click)="pickContactNo()">Secondary</button>
+            </ion-item>
         </ion-card-content>
       </ion-card>
 
+      <ion-card>
+        <ion-card-content>
+          <ion-card-title>
+            Estrellas
+          </ion-card-title>
+          <ion-list radio-group [(ngModel)]="relationship">
+            <ion-item>
+              <ion-radio item-left value="enemies" [disabled]="isDisabled"></ion-radio>
+              <ion-label>Todas las Estrellas</ion-label>
+
+            </ion-item>
+            <ion-item>
+              <ion-radio item-left value="family"></ion-radio>
+              <ion-icon name="start" svgversion item-start></ion-icon>
+              <ion-icon name="startq" svgversion item-start></ion-icon>
+              <ion-icon name="start2" svgversion item-left></ion-icon>
+              <ion-icon name="start2" svgversion item-left></ion-icon>
+              <ion-icon name="start2" svgversion item-left></ion-icon>
+
+            </ion-item>
+            <ion-item>
+              <ion-radio item-left item-left value="family"></ion-radio>
+              <ion-icon name="start" svgversion item-start></ion-icon>
+              <ion-icon name="startq" svgversion item-start></ion-icon>
+              <ion-icon name="start2" svgversion item-left></ion-icon>
+              <ion-icon name="start2" svgversion item-left></ion-icon>
+            </ion-item>
+            <ion-item>
+
+              <ion-radio item-left value="enemies" [disabled]="isDisabled"></ion-radio>
+              <ion-icon name="start" svgversion item-start></ion-icon>
+              <ion-icon name="startq" svgversion item-start></ion-icon>
+              <ion-icon name="start2" svgversion item-left></ion-icon>
+
+            </ion-item>
+            <ion-item>
+
+              <ion-radio item-left value="enemies" [disabled]="isDisabled"></ion-radio>
+              <ion-icon name="start" svgversion item-start></ion-icon>
+              <ion-icon name="startq" svgversion item-start></ion-icon>
+
+            </ion-item>
+
+            <ion-item>
+              <ion-radio item-left value="enemies" [disabled]="isDisabled"></ion-radio>
+              <ion-icon name="start" svgversion item-start></ion-icon>
+
+
+            </ion-item>
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
 
     </ion-content>
 

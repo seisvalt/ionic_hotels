@@ -108,3 +108,20 @@ ion-list {
 .scroll-content {
   overflow-y: auto !important;
 }
+
+
+ion-icon[svgversion] {
+ // content: url("../assets/img/filters/star.svg");
+  mask-image: url("../assets/img/filters/star.svg");
+  mask-repeat: no-repeat;
+  padding: 2px 0px 3px;
+  mask-size: contain;
+  background: currentColor;
+  width: 1em;
+  height: 1em;
+  color: #fdba12;
+}
+
+.split-pane-md.split-pane-visible > .split-pane-side {
+  border-right: 0px;
+}

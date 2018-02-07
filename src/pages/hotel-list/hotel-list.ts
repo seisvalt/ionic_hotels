@@ -31,6 +31,7 @@ export class HotelListPage {
   assets : string  = "../assets/img";
   url_img : string  = "/hotels/";
   url_amenities : string  = "/amenities/";
+  extension :string = ".svg";
 
   constructor(
     public actionSheetCtrl: ActionSheetController,

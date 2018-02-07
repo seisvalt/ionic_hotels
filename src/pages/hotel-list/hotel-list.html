@@ -21,17 +21,18 @@
               <ion-col item-left >
                 <h2>{{hotel.name}}</h2>
                 <p>
-                  moco
-                  <!-- <button ion-item *ngFor="let amenities of hotel.amenities" ">
+                   <ion-item >
+                     <img class="amenities" [src]="assets + url_amenities + amenities + extension" alt="picc" *ngFor="let amenities of hotel.amenities" >
+                   </ion-item>
 
-                     <img [src]="assets + url_amenities + amenities" alt="Speaker profile pic">
-                   </button>
-   -->
                 </p>
               </ion-col>
 
               <ion-col item-end>
-                blome
+                <p>Precio por noche por</p>
+                <p> habitación</p>
+                <p>ARS {{hotel.price}}</p>
+                <button ion-button color="light">Ver Hotel</button>
               </ion-col>
               </ion-row>
             </ion-item>

@@ -17,70 +17,72 @@
         </ion-list-header>
       </ion-list>
 
-      <ion-card>
-        <ion-card-content>
-          <ion-card-title>
-            Nombre del Hotel
-          </ion-card-title>
-          <ion-item>
-          <ion-input type="text" placeholder ="Ingrese el nombre del hotel"></ion-input>
-          <button ion-button item-right color="secondary" (click)="pickContactNo()">Secondary</button>
-            </ion-item>
-        </ion-card-content>
-      </ion-card>
 
-      <ion-card>
-        <ion-card-content>
-          <ion-card-title>
-            Estrellas
-          </ion-card-title>
-          <ion-list radio-group [(ngModel)]="relationship">
+
+        <ion-card>
+          <ion-card-content>
+            <ion-card-title>
+              Nombre del Hotel
+            </ion-card-title>
             <ion-item>
-              <ion-radio item-left value="enemies" [disabled]="isDisabled"></ion-radio>
-              <ion-label>Todas las Estrellas</ion-label>
+            <ion-input type="text" [(ngModel)]="type_search.name" name="nombre" [ngModelOptions]="{standalone: true}" placeholder ="Ingrese el nombre del hotel"></ion-input>
+            <button ion-button (tap)="findHotels()" item-right color="secondary">Aceptar</button>
+              </ion-item>
+          </ion-card-content>
+        </ion-card>
 
-            </ion-item>
-            <ion-item>
-              <ion-radio item-left value="family"></ion-radio>
-              <ion-icon name="start" svgversion item-start></ion-icon>
-              <ion-icon name="startq" svgversion item-start></ion-icon>
-              <ion-icon name="start2" svgversion item-left></ion-icon>
-              <ion-icon name="start2" svgversion item-left></ion-icon>
-              <ion-icon name="start2" svgversion item-left></ion-icon>
+        <ion-card>
+          <ion-card-content>
+            <ion-card-title>
+              Estrellas
+            </ion-card-title>
+            <ion-list radio-group [(ngModel)]="type_search.starts">
+              <ion-item>
+                <ion-radio item-left value="all" [disabled]="isDisabled"></ion-radio>
+                <ion-label>Todas las Estrellas</ion-label>
 
-            </ion-item>
-            <ion-item>
-              <ion-radio item-left item-left value="family"></ion-radio>
-              <ion-icon name="start" svgversion item-start></ion-icon>
-              <ion-icon name="startq" svgversion item-start></ion-icon>
-              <ion-icon name="start2" svgversion item-left></ion-icon>
-              <ion-icon name="start2" svgversion item-left></ion-icon>
-            </ion-item>
-            <ion-item>
+              </ion-item>
+              <ion-item>
+                <ion-radio item-left value="5"></ion-radio>
+                <ion-icon name="start" svgversion item-start></ion-icon>
+                <ion-icon name="startq" svgversion item-start></ion-icon>
+                <ion-icon name="start2" svgversion item-left></ion-icon>
+                <ion-icon name="start2" svgversion item-left></ion-icon>
+                <ion-icon name="start2" svgversion item-left></ion-icon>
 
-              <ion-radio item-left value="enemies" [disabled]="isDisabled"></ion-radio>
-              <ion-icon name="start" svgversion item-start></ion-icon>
-              <ion-icon name="startq" svgversion item-start></ion-icon>
-              <ion-icon name="start2" svgversion item-left></ion-icon>
+              </ion-item>
+              <ion-item>
+                <ion-radio item-left item-left value="4"></ion-radio>
+                <ion-icon name="start" svgversion item-start></ion-icon>
+                <ion-icon name="startq" svgversion item-start></ion-icon>
+                <ion-icon name="start2" svgversion item-left></ion-icon>
+                <ion-icon name="start2" svgversion item-left></ion-icon>
+              </ion-item>
+              <ion-item>
 
-            </ion-item>
-            <ion-item>
+                <ion-radio item-left value="3" [disabled]="isDisabled"></ion-radio>
+                <ion-icon name="start" svgversion item-start></ion-icon>
+                <ion-icon name="startq" svgversion item-start></ion-icon>
+                <ion-icon name="start2" svgversion item-left></ion-icon>
 
-              <ion-radio item-left value="enemies" [disabled]="isDisabled"></ion-radio>
-              <ion-icon name="start" svgversion item-start></ion-icon>
-              <ion-icon name="startq" svgversion item-start></ion-icon>
+              </ion-item>
+              <ion-item>
 
-            </ion-item>
+                <ion-radio item-left value="2" [disabled]="isDisabled"></ion-radio>
+                <ion-icon name="start" svgversion item-start></ion-icon>
+                <ion-icon name="startq" svgversion item-start></ion-icon>
 
-            <ion-item>
-              <ion-radio item-left value="enemies" [disabled]="isDisabled"></ion-radio>
-              <ion-icon name="start" svgversion item-start></ion-icon>
+              </ion-item>
+
+              <ion-item>
+                <ion-radio item-left value="1" [disabled]="isDisabled"></ion-radio>
+                <ion-icon name="start" svgversion item-start></ion-icon>
 
 
-            </ion-item>
-          </ion-list>
-        </ion-card-content>
-      </ion-card>
+              </ion-item>
+            </ion-list>
+          </ion-card-content>
+        </ion-card>
 
     </ion-content>
 

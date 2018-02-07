@@ -23,13 +23,17 @@ export class HotelProvider {
   }
 
   load(): any {
-    console.log("moco");
     if (this.data) {
       return Observable.of(this.data);
     } else {
       return this.http.get('http://192.168.0.15:3000/users')
         .map(this.processData, this);
     }
+  }
+
+  find(name: String): any {
+      return this.http.get('http://192.168.0.15:3000/users/'+name)
+        .map(this.processData, this);
   }
 
   processData(data: any) {

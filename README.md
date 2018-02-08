@@ -13,7 +13,7 @@ Aplicación de prueba para proposito de test en almundo.com.
 
 * [Download the installer](https://nodejs.org/) for Node.js 6 or greater.
 * Instale ionic CLI de forma global: `npm install -g ionic`
-* descomprima o clone este [repositorio](https://nodejs.org/)
+* descomprima o clone este [repositorio](https://github.com/seisvalt/ionic_hotels.git)
 * ejecute `npm install` en la raiz del proyecto.
 * ejecute `ionic serve` .
 * Profit. :tada:

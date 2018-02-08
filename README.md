@@ -1,6 +1,6 @@
 # Ionic Hotels Application
 
-Aplicacion de prueba para proposito de test en almundo.com.
+Aplicación de prueba para proposito de test en almundo.com.
 
 
 ## Table of Contents
@@ -12,10 +12,10 @@ Aplicacion de prueba para proposito de test en almundo.com.
 ## Getting Started
 
 * [Download the installer](https://nodejs.org/) for Node.js 6 or greater.
-* Install the ionic CLI globally: `npm install -g ionic`
-* Unzip this repository
-* Run `npm install` from the project root.
-* Run `ionic serve` in a terminal from the project root.
+* Instale ionic CLI de forma global: `npm install -g ionic`
+* descomprima o clone este [repositorio](https://nodejs.org/)
+* ejecute `npm install` en la raiz del proyecto.
+* ejecute `ionic serve` .
 * Profit. :tada:
 
 _Note: You may need to add “sudo” in front of any global commands to install the utilities._
@@ -25,7 +25,7 @@ _Note: You may need to add “sudo” in front of any global commands to install
 
 [Try it live](http://34.223.234.137/almundohotels)
 
-La aplicacion puede ejecutarse con el comando `ionic serve`.
+La aplicación puede ejecutarse con el comando `ionic serve`, y es se puede acceder desde http://127.0.0.1:8100 
 
 
 ## Deploying

@@ -24,14 +24,14 @@ export class HotelProvider {
     if (this.data) {
       return Observable.of(this.data);
     } else {
-      return this.http.get('http://127.0.0.1:3000/users')
+      return this.http.get('http://127.0.0.1:3000/hotels')
         .map(this.processData, this);
     }
   }
 
   find(name: String): any {
     var retorno: any;
-    retorno = this.http.get('http://127.0.0.1:3000/users/'+name)
+    retorno = this.http.get('http://127.0.0.1:3000/hotels/'+name)
       .map(this.processData, this);
       return retorno;
   }

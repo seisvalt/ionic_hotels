@@ -3,8 +3,6 @@ import { Component, ViewChild } from '@angular/core';
 import {App, Events, MenuController, Nav, Platform} from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Storage } from '@ionic/storage';
-import { AboutPage } from '../pages/about/about';
-import { UserData } from '../providers/user-data';
 import {HotelListPage} from "../pages/hotel-list/hotel-list";
 import {HotelProvider} from "../providers/hotel";
 
@@ -33,7 +31,6 @@ export class ConferenceApp {
   // the login page disables the left menu
   appPages: PageInterface[] = [
     { title: 'Hotels', name: 'Hotel', component: null, tabComponent: HotelListPage, index: 1, icon: 'contacts' },
-    { title: 'About', name: 'TabsPage', component: null, tabComponent: AboutPage, index: 3, icon: 'information-circle' }
   ];
   loggedInPages: PageInterface[] = [
   ];
@@ -49,7 +46,6 @@ export class ConferenceApp {
 
   constructor(
     public events: Events,
-    public userData: UserData,
     public menu: MenuController,
     public platform: Platform,
     public confData: HotelProvider,
@@ -66,7 +62,7 @@ export class ConferenceApp {
   }
 
   findHotels() {
-    console.log(this.type_search)
+    console.log(this.type_search);
     this.confData.find(this.type_search.name).subscribe((hotels: any[]) => {
       console.log(hotels);
       this.openPage(this.appPages[0]);
@@ -95,10 +91,6 @@ export class ConferenceApp {
       });
     }
 
-    if (page.logsOut === true) {
-      // Give the menu time to close before changing to logged out
-      this.userData.logout();
-    }
   }
 
   platformReady() {

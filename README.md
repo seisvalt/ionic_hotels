@@ -66,14 +66,13 @@ ionic-conference-app/
 |    |    ├── img/
 |    |
 |    |-- pages/                          * Contains all of our pages
-│    │    ├── about/                     * About tab page
-│    │    │    ├── about.html            * AboutPage template
-│    │    │    └── about.ts              * AboutPage code
-│    │    │    └── about.scss            * AboutPage stylesheet
+│    │    ├── hotel-list/                * Hotel tab page
+│    │    │    ├── hotel-list.html       * Hotel template
+│    │    │    └── hotel-list.ts         * Hotel code
+│    │    │    └── hotel-list.scss       * Hotel stylesheet
 |    |
 │    ├── providers/                      * Contains all Injectables
-│    │     ├── conference-data.ts        * ConferenceData code
-│    │     └── user-data.ts              * UserData code
+│    │     ├── hotels.ts                 * HotelData code
 │    ├── theme/                          * App theme files
 |    |     ├── variables.scss            * App Shared Sass Variables
 |    |

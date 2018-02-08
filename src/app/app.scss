@@ -78,10 +78,11 @@
 /*Set the background to transparent for ion-item*/
 .custom .item {
   background-color: white;
-  border:none;   /*Removes all borders*/
+  /*Removes all borders*/
 //  border-top: 0px solid;   /*Top Border for each menu item*/
  // border-bottom:0px solid;   /*Bottom border for each menu item*/
-  border-color: #666;   /*Sets colors for top and bottom border*/
+  /*Sets colors for top and bottom border*/
+  border: none;
   color: black;    /*Text color for each item*/
 }
 
@@ -114,7 +115,7 @@ ion-icon[svgversion] {
  // content: url("../assets/img/filters/star.svg");
   mask-image: url("../assets/img/filters/star.svg");
   mask-repeat: no-repeat;
-  padding: 2px 0px 3px;
+  padding: 2px 0 3px;
   mask-size: contain;
   background: currentColor;
   width: 1em;
@@ -131,7 +132,7 @@ ion-card-title{
 ion-icon[svgfind] {
   mask-image: url("../assets/img/filters/search.svg");
   mask-repeat: no-repeat;
-  padding: 2px 0px 3px;
+  padding: 2px 0 3px;
   mask-size: contain;
   background: currentColor;
   width: 1em;
@@ -141,7 +142,7 @@ ion-icon[svgfind] {
 ion-icon[svgstart] {
   mask-image: url("../assets/img/filters/star.svg");
   mask-repeat: no-repeat;
-  padding: 2px 0px 3px;
+  padding: 2px 0 3px;
   mask-size: contain;
   background: currentColor;
   width: 0.8em;
@@ -152,16 +153,10 @@ ion-icon[svgstart] {
 ion-title[svgversion] {
   content: url("../assets/img/logo-almundo.svg");
   z-index: 1000;
-  //padding: 2px 0px 3px;
- // mask-size: contain;
-  //background: currentColor;
- // width: 10em;
-//  height: 8em;
-  //color: white;
 }
 
 .split-pane-md.split-pane-visible > .split-pane-side {
-  border-right: 0px;
+  border-right: 0;
 }
 
 ion-buttons{

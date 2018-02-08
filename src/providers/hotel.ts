@@ -7,6 +7,7 @@ import { UserData } from './user-data';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/of';
+import {BehaviorSubject} from "rxjs/BehaviorSubject";
 
 /*
  Generated class for the SensorProvider provider.
@@ -16,6 +17,7 @@ import 'rxjs/add/observable/of';
  */
 @Injectable()
 export class HotelProvider {
+  private usersSubject = new BehaviorSubject([]);
   data: any;
 
   constructor(public http: Http, public user: UserData) {
@@ -26,14 +28,22 @@ export class HotelProvider {
     if (this.data) {
       return Observable.of(this.data);
     } else {
-      return this.http.get('http://192.168.0.15:3000/users')
+      return this.http.get('http://127.0.0.1:3000/users')
         .map(this.processData, this);
     }
   }
 
   find(name: String): any {
-      return this.http.get('http://192.168.0.15:3000/users/'+name)
-        .map(this.processData, this);
+    var retorno: any;
+    retorno = this.http.get('http://127.0.0.1:3000/users/'+name)
+      .map(this.processData, this);
+    //console.log("retorno", retorno);
+      return retorno;
+  }
+
+  private refresh() {
+    // Emitir los nuevos valores para que todos los que dependan se actualicen.
+    this.usersSubject.next(this.data);
   }
 
   processData(data: any) {
@@ -42,36 +52,7 @@ export class HotelProvider {
     // build up the data by linking speakers to sessions
     this.data = data.json();
     console.log(this.data);
-/*
-    // loop through each day in the schedule
-    this.data.schedule.forEach((day: any) => {
-      // loop through each timeline group in the day
-      day.groups.forEach((group: any) => {
-        // loop through each session in the timeline group
-        group.sessions.forEach((session: any) => {
-          session.speakers = [];
-          if (session.speakerNames) {
-            session.speakerNames.forEach((speakerName: any) => {
-              let speaker = this.data.speakers.find((s: any) => s.name === speakerName);
-              if (speaker) {
-                session.speakers.push(speaker);
-                speaker.sessions = speaker.sessions || [];
-                speaker.sessions.push(session);
-              }
-            });
-          }
-
-          if (session.tracks) {
-            session.tracks.forEach((track: any) => {
-              if (this.data.tracks.indexOf(track) < 0) {
-                this.data.tracks.push(track);
-              }
-            });
-          }
-        });
-      });
-    });*/
-
+    this.refresh();
     return this.data;
   }
 
@@ -142,14 +123,8 @@ export class HotelProvider {
     session.hide = !(matchesQueryText && matchesTracks && matchesSegment);
   }
 
-  getSpeakers() {
-    return  this.load();/*load().map((data: any) => {
-      return data.speakers.sort((a: any, b: any) => {
-        let aName = a.name.split(' ').pop();
-        let bName = b.name.split(' ').pop();
-        return aName.localeCompare(bName);
-      });
-    });*/
+  getHotels() {
+    return  this.load();
   }
 
   getTracks() {

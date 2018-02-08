@@ -41,9 +41,9 @@ export class HotelListPage {
     public inAppBrowser: InAppBrowser
   ) {}
 
-  ionViewDidLoad() {
+  ionViewDidEnter() {
     console.log("cargando");
-    this.confData.getSpeakers().subscribe((hotels: any[]) => {
+    this.confData.getHotels().subscribe((hotels: any[]) => {
       this.hotels = hotels;
     });
   }

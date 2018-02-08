@@ -10,12 +10,14 @@ import { IonicStorageModule } from '@ionic/storage';
 import { ConferenceApp } from './app.component';
 import { AboutPage } from '../pages/about/about';
 import { PopoverPage } from '../pages/about-popover/about-popover';
-import { SessionDetailPage } from '../pages/session-detail/session-detail';
-import { SpeakerDetailPage } from '../pages/speaker-detail/speaker-detail';
-import { SpeakerListPage } from '../pages/speaker-list/speaker-list';
-import { TabsPage } from '../pages/tabs-page/tabs-page';
+//import { SessionDetailPage } from '../pages/session-detail/session-detail';
+//import { SpeakerDetailPage } from '../pages/speaker-detail/speaker-detail';
+//import { SpeakerListPage } from '../pages/speaker-list/speaker-list';
+//import { TabsPage } from '../pages/tabs-page/tabs-page';
 import { ConferenceData } from '../providers/conference-data';
 import { UserData } from '../providers/user-data';
+import {HotelListPage} from "../pages/hotel-list/hotel-list";
+import {HotelProvider} from "../providers/hotel";
 
 
 @NgModule({
@@ -23,21 +25,23 @@ import { UserData } from '../providers/user-data';
     ConferenceApp,
     AboutPage,
     PopoverPage,
-    SessionDetailPage,
-    SpeakerDetailPage,
-    SpeakerListPage,
-    TabsPage,
+    //SessionDetailPage,
+    //SpeakerDetailPage,
+    //SpeakerListPage,
+   // TabsPage,
+    HotelListPage,
   ],
   imports: [
     BrowserModule,
     HttpModule,
     IonicModule.forRoot(ConferenceApp, {}, {
       links: [
-        { component: TabsPage, name: 'TabsPage', segment: 'tabs-page' },
-        { component: SessionDetailPage, name: 'SessionDetail', segment: 'sessionDetail/:sessionId' },
-        { component: SpeakerListPage, name: 'SpeakerList', segment: 'speakerList' },
-        { component: SpeakerDetailPage, name: 'SpeakerDetail', segment: 'speakerDetail/:speakerId' },
+        //{ component: TabsPage, name: 'TabsPage', segment: 'tabs-page' },
+      //  { component: SessionDetailPage, name: 'SessionDetail', segment: 'sessionDetail/:sessionId' },
+      //  { component: SpeakerListPage, name: 'SpeakerList', segment: 'speakerList' },
+      //  { component: SpeakerDetailPage, name: 'SpeakerDetail', segment: 'speakerDetail/:speakerId' },
         { component: AboutPage, name: 'About', segment: 'about' },
+        { component: HotelListPage, name: 'Hotel', segment: 'hotels' },
       ]
     }),
     IonicStorageModule.forRoot()
@@ -47,14 +51,16 @@ import { UserData } from '../providers/user-data';
     ConferenceApp,
     AboutPage,
     PopoverPage,
-    SessionDetailPage,
-    SpeakerDetailPage,
-    SpeakerListPage,
-    TabsPage,
+    //SessionDetailPage,
+    //SpeakerDetailPage,
+    //SpeakerListPage,
+    HotelListPage,
+    //TabsPage,
   ],
   providers: [
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     ConferenceData,
+    HotelProvider,
     UserData,
     InAppBrowser,
     SplashScreen

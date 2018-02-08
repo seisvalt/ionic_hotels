@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="outer-content ">
+
+  <ion-list [virtualScroll]="hotels" >
+    <ion-grid fixed *virtualItem="let hotel">
+
+          <ion-card>
+            <ion-item>
+              <ion-row >
+              <ion-col no-padding item-start>
+                <img class="photo"  [src]="assets + url_img + hotel.image">
+              </ion-col>
+
+              <ion-col item-left >
+                <h2>{{hotel.name}}</h2>
+                <ion-icon name="start" svgstart item-start  *ngFor="let item of this.createRange(hotel.stars)"></ion-icon>
+                <p>
+                     <img class="amenities" [src]="assets + url_amenities + amenities + extension" alt="picc" *ngFor="let amenities of hotel.amenities" >
+                </p>
+
+              </ion-col>
+
+              <ion-col item-end>
+                <p>Precio por noche por</p>
+                <p> habitación</p>
+                <p class="amarillo">ARS <span>{{hotel.price}}</span></p>
+                <button ion-button >Ver hotel</button>
+              </ion-col>
+              </ion-row>
+            </ion-item>
+          </ion-card>
+
+
+    </ion-grid>
+  </ion-list>
+</ion-content>

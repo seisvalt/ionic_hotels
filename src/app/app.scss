@@ -108,3 +108,63 @@ ion-list {
 .scroll-content {
   overflow-y: auto !important;
 }
+
+
+ion-icon[svgversion] {
+ // content: url("../assets/img/filters/star.svg");
+  mask-image: url("../assets/img/filters/star.svg");
+  mask-repeat: no-repeat;
+  padding: 2px 0px 3px;
+  mask-size: contain;
+  background: currentColor;
+  width: 1em;
+  height: 1em;
+  color: #fdba12;
+}
+
+ion-card-title{
+  color: #157ab1 !important;
+  font-size: medium !important;
+
+}
+
+ion-icon[svgfind] {
+  mask-image: url("../assets/img/filters/search.svg");
+  mask-repeat: no-repeat;
+  padding: 2px 0px 3px;
+  mask-size: contain;
+  background: currentColor;
+  width: 1em;
+  height: 1em;
+}
+
+ion-icon[svgstart] {
+  mask-image: url("../assets/img/filters/star.svg");
+  mask-repeat: no-repeat;
+  padding: 2px 0px 3px;
+  mask-size: contain;
+  background: currentColor;
+  width: 0.8em;
+  height: 0.8em;
+}
+
+
+ion-title[svgversion] {
+  content: url("../assets/img/logo-almundo.svg");
+  z-index: 1000;
+  //padding: 2px 0px 3px;
+ // mask-size: contain;
+  //background: currentColor;
+ // width: 10em;
+//  height: 8em;
+  //color: white;
+}
+
+.split-pane-md.split-pane-visible > .split-pane-side {
+  border-right: 0px;
+}
+
+ion-buttons{
+  color: #002c77;
+  text-transform: none !important;
+}

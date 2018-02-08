@@ -3,7 +3,6 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Speakers</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -12,17 +11,19 @@
     <ion-grid fixed>
       <ion-row align-items-stretch>
 
-        <ion-col col-12 col-md-6 align-self-stretch align-self-center *virtualItem="let speaker" approxItemHeight="457px">
+        <ion-col col-12 col-md-12 align-self-stretch align-self-center *virtualItem="let speaker" approxItemHeight="457px">
 
           <ion-card class="speaker-card">
-            <ion-card-header>
+            <img [src]="speaker.profilePic" alt="Speaker profile pic">
+            <ion-card-title> {{speaker.name}} </ion-card-title>
+            <!--<ion-card-header>
               <button ion-item detail-none (click)="goToSpeakerDetail(speaker)">
                 <ion-avatar item-start>
                   <img [src]="speaker.profilePic" alt="Speaker profile pic">
                 </ion-avatar>
                 {{speaker.name}}
               </button>
-            </ion-card-header>
+            </ion-card-header>-->
 
             <ion-card-content class="outer-content">
               <ion-list>

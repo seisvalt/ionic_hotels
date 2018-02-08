@@ -1,0 +1,156 @@
+page-hotel-list {
+  .scroll-content {
+    background: #EDEDED;
+  }
+
+  .hotel-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    ion-card-content {
+      flex: 1 1 auto;
+    }
+  }
+
+  // Todo: remove when this issue https://github.com/ionic-team/ionic/issues/11212 is fixed
+  @media(min-width: 769px) {
+    .hotel-card {
+      height: 370px;
+    }
+  }
+
+  /*.hotel-card ion-card-header .item {
+    padding: 4px 16px;
+  }*/
+
+  .hotel-card ion-card-content {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+
+  .header-image {
+    background-image: url(https://ununsplash.imgix.net/photo-1421091242698-34f6ad7fc088?fit=crop&fm=jpg&h=650&q=75&w=950);
+    height: 40vh;
+  }
+
+  .main-content {
+    background-color: map-get($colors, dark);
+    box-shadow: 0px -1px 13px 1px rgba(0,0,0,0.3);
+  }
+
+  .scroll-content {
+    padding-top: 0 !important;
+  }
+
+  ion-header {
+    backdrop-filter: blur(8px);
+  }
+
+ /* ion-navbar {
+    opacity: 0.4;
+    box-shadow: 0px 1px 13px 1px rgba(0,0,0,0.77);
+  }*/
+
+  ion-segment {
+    padding: 0px 12px;
+    opacity: 0.7;
+    position: relative;
+    top: -50px;
+  }
+
+
+  ion-segment-button {
+    border-color: map-get($colors, primary) !important;
+    color: #fff !important;
+  }
+
+  ion-card {
+    background-color: #fff;
+    width: 100%;
+    margin: 0;
+    margin-bottom: 20px;
+    position: relative;
+    top: 0px;
+  }
+
+
+
+  ion-item {
+    background-color: #fff;
+    position: relative;
+    padding-left: 0px
+  }
+
+  ion-list {
+    margin: 0px !important;
+  }
+
+
+
+  .photo {
+    width: 230px !important;
+    float: left;
+    position: relative;
+
+
+  }
+
+  ion-row {
+
+    ion-col {
+      &:first-of-type {
+        padding: 0px !important
+       // flex: 0 0 0px;
+
+      }
+      &:last-of-type{
+        border-left: dashed;
+        border-color: #cccccc;
+        border-width: 1px;
+        text-align: center;
+      }
+    }
+  }
+  .amenities {
+    // content: url("../assets/img/filters/star.svg");
+  //  mask-image: url("../assets/img/filters/star.svg");
+    mask-repeat: no-repeat;
+    margin: 0 15px 0 0px;
+    //padding: 2px 0px 3px;
+    mask-size: contain;
+   // background: currentColor;
+    display: inline;
+    width: 1.8em;
+    height: 1.4em;
+    color: #444444;
+  }
+
+  ion-buttons{
+    color: #002c77;
+    text-transform: none !important;
+  }
+
+  .amarillo {
+    color: #df6800;
+    font-size: large !important;
+    margin: 15px 0px 15px 0px;
+  }
+  .amarillo span{
+    font-size:x-large !important;
+  }
+
+  ion-icon[svgstart] {
+    mask-image: url("../../assets/img/filters/star.svg");
+    mask-repeat: no-repeat;
+    padding: 2px 0px 3px;
+    mask-size: contain;
+    background: currentColor;
+    width: 1em;
+    height: 1em;
+    color: #fdba12;
+  }
+
+
+}

@@ -4,9 +4,10 @@ import {App, Events, MenuController, Nav, Platform} from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Storage } from '@ionic/storage';
 import { AboutPage } from '../pages/about/about';
-import { SpeakerListPage } from '../pages/speaker-list/speaker-list';
-import { ConferenceData } from '../providers/conference-data';
 import { UserData } from '../providers/user-data';
+import {HotelListPage} from "../pages/hotel-list/hotel-list";
+import {HotelProvider} from "../providers/hotel";
+
 
 export interface PageInterface {
   title: string;
@@ -20,7 +21,7 @@ export interface PageInterface {
 }
 
 @Component({
-  templateUrl: 'app.template.html'
+  templateUrl: 'app.template.html',
 })
 export class ConferenceApp {
   // the root nav is a child of the root app component
@@ -31,13 +32,19 @@ export class ConferenceApp {
   // the left menu only works after login
   // the login page disables the left menu
   appPages: PageInterface[] = [
-    { title: 'Speakers', name: 'TabsPage', component: null, tabComponent: SpeakerListPage, index: 1, icon: 'contacts' },
+    { title: 'Hotels', name: 'Hotel', component: null, tabComponent: HotelListPage, index: 1, icon: 'contacts' },
     { title: 'About', name: 'TabsPage', component: null, tabComponent: AboutPage, index: 3, icon: 'information-circle' }
   ];
   loggedInPages: PageInterface[] = [
   ];
   loggedOutPages: PageInterface[] = [
   ];
+
+  type_search = {
+    name: '',
+    starts: ''
+  };
+
   rootPage: any;
 
   constructor(
@@ -45,17 +52,25 @@ export class ConferenceApp {
     public userData: UserData,
     public menu: MenuController,
     public platform: Platform,
-    public confData: ConferenceData,
+    public confData: HotelProvider,
     public storage: Storage,
     public splashScreen: SplashScreen,
     private app: App
   ) {
     this.app._setDisableScroll(true);
-    this.rootPage = SpeakerListPage;
+    this.rootPage = HotelListPage;
     confData.load();
 
 
 
+  }
+
+  findHotels() {
+    console.log(this.type_search)
+    this.confData.find(this.type_search.name).subscribe((hotels: any[]) => {
+      console.log(hotels);
+      this.openPage(this.appPages[0]);
+    });
   }
 
   openPage(page: PageInterface) {

@@ -139,6 +139,8 @@ export class HotelProvider {
     });
   }
 
+
+
  /* all() {
     return this.http.get('http://192.168.1.12/~seisvalt/iris/api/web/v3/environments', {}, {});
   }

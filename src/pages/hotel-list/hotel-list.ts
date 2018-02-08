@@ -91,6 +91,14 @@ export class HotelListPage {
     actionSheet.present();
   }
 
+  createRange(number){
+    var items: number[] = [];
+    for(var i = 1; i <= number; i++){
+      items.push(i);
+    }
+    return items;
+  }
+
   openContact(hotel: any) {
     let mode = this.config.get('mode');
 

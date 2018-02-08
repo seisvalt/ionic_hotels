@@ -20,19 +20,18 @@
 
               <ion-col item-left >
                 <h2>{{hotel.name}}</h2>
+                <ion-icon name="start" svgstart item-start  *ngFor="let item of this.createRange(hotel.stars)"></ion-icon>
                 <p>
-                   <ion-item >
                      <img class="amenities" [src]="assets + url_amenities + amenities + extension" alt="picc" *ngFor="let amenities of hotel.amenities" >
-                   </ion-item>
-
                 </p>
+
               </ion-col>
 
               <ion-col item-end>
                 <p>Precio por noche por</p>
                 <p> habitación</p>
-                <p>ARS {{hotel.price}}</p>
-                <button ion-button color="light">Ver Hotel</button>
+                <p class="amarillo">ARS <span>{{hotel.price}}</span></p>
+                <button ion-button >Ver hotel</button>
               </ion-col>
               </ion-row>
             </ion-item>

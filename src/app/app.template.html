@@ -22,11 +22,12 @@
         <ion-card>
           <ion-card-content>
             <ion-card-title>
+              <ion-icon name="start" svgfind item-start></ion-icon>
               Nombre del Hotel
             </ion-card-title>
             <ion-item>
             <ion-input type="text" [(ngModel)]="type_search.name" name="nombre" [ngModelOptions]="{standalone: true}" placeholder ="Ingrese el nombre del hotel"></ion-input>
-            <button ion-button (tap)="findHotels()" item-right color="secondary">Aceptar</button>
+            <button ion-button (tap)="findHotels()" item-right>Aceptar</button>
               </ion-item>
           </ion-card-content>
         </ion-card>
@@ -34,6 +35,7 @@
         <ion-card>
           <ion-card-content>
             <ion-card-title>
+              <ion-icon name="start" svgstart item-start></ion-icon>
               Estrellas
             </ion-card-title>
             <ion-list radio-group [(ngModel)]="type_search.starts">
